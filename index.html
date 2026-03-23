@@ -859,6 +859,76 @@
       border-color: var(--gold)
     }
 
+    #about {
+      background: var(--bg)
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 3rem;
+      align-items: start;
+      margin-top: 2rem
+    }
+
+    .about-photo-wrap {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      aspect-ratio: 1;
+      background: var(--bg2);
+      border: 1px solid rgba(255, 255, 255, .08)
+    }
+
+    .about-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    .about-photo-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      font-size: .78rem;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.6;
+      padding: 1rem
+    }
+
+    .about-text p {
+      font-size: .94rem;
+      color: var(--text);
+      line-height: 1.85
+    }
+
+    .about-text .about-project-link {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(232, 184, 75, .3);
+      padding-bottom: 1px;
+      transition: border-color .2s
+    }
+
+    .about-text .about-project-link:hover {
+      border-color: var(--gold)
+    }
+
+    @media(max-width:700px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem
+      }
+
+      .about-photo-wrap {
+        max-width: 200px;
+        margin: 0 auto
+      }
+    }
+
     #disclaimer {
       background: var(--bg2)
     }
@@ -1043,6 +1113,7 @@
       <li><a href="#calibration">Calibration</a></li>
       <li><a href="#code">Code</a></li>
       <li><a href="#more">More</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#disclaimer">Disclaimer</a></li>
     </ul>
   </nav>
@@ -1226,10 +1297,20 @@
             <!-- <p class="mat-placeholder-label">&#128247; images/resistors-wires.jpg</p>  -->
           </div>
           <div class="mat-body">
-            <p class="mat-name">10k&#8486; Resistors;</p>
+            <p class="mat-name">10k&#8486; Resistors</p>
             <p class="mat-desc">10k&#8486; resistors for the LDR voltage divider and for the LEDs. Use insulated wires
               to connect
               everything neatly behind the board.</p>
+          </div>
+        </div>
+        <div class="material-card reveal">
+          <div class="mat-img-wrap"><img src="images/transparent_tube.jpg" alt="Transparent tube"
+              onerror="this.style.display='none'" />
+            <!-- <p class="mat-placeholder-label">&#128247; images/resistors-wires.jpg</p>  -->
+          </div>
+          <div class="mat-body">
+            <p class="mat-name">Transparent tube</p>
+            <p class="mat-desc">A transparent tube to position the LEDs and the photoresistor.</p>
           </div>
         </div>
         <div class="material-card reveal">
@@ -1238,8 +1319,8 @@
             <p class="mat-placeholder-label">&#128247; images/frame.jpg</p>
           </div>
           <div class="mat-body">
-            <p class="mat-name">Picture Frame (A3)</p>
-            <p class="mat-desc">A deep-set or shadow-box A3 frame. Provides the finished look and hides all electronics
+            <p class="mat-name">Picture Frame</p>
+            <p class="mat-desc">A deep-set or shadow-box frame. Provides the finished look and hides all electronics
               behind the board.</p>
           </div>
         </div>
@@ -1381,7 +1462,7 @@
       <div class="divider reveal"></div>
       <p class="reveal">The Arduino sketch is fully open source. Fork it, adapt it for your constellation, change the
         Morse message &mdash; make it yours.</p>
-      <a href="https://github.com/yourusername/allthosestars" class="github-card reveal" target="_blank" rel="noopener">
+      <a href="https://github.com/lubrz/allthosestars" class="github-card reveal" target="_blank" rel="noopener">
         <svg class="github-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path
             d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12" />
@@ -1420,7 +1501,7 @@
           </div>
           <div class="c-body"><span class="c-symbol">&#10022;</span>
             <p class="c-name">Cassiopeia</p>
-            <p class="c-tagline">&ldquo;She Who Endures&rdquo;</p>
+            <!-- ADD when ready <p class="c-tagline">&ldquo;She Who Endures&rdquo;</p> -->
             <p class="c-status">In progress</p>
           </div>
         </div>
@@ -1432,7 +1513,7 @@
           </div>
           <div class="c-body"><span class="c-symbol">&#10022;</span>
             <p class="c-name">Orion</p>
-            <p class="c-tagline">&ldquo;The Hunter&rdquo;</p>
+            <!-- ADD when ready <p class="c-tagline">&ldquo;The Hunter&rdquo;</p> -->
             <p class="c-status">In progress</p>
           </div>
         </div>
@@ -1444,7 +1525,7 @@
           </div>
           <div class="c-body"><span class="c-symbol">&#9800;</span>
             <p class="c-name">Zodiac Signs</p>
-            <p class="c-tagline">The 12 zodiac signs</p>
+            <!-- ADD when ready <p class="c-tagline">The 12 zodiac signs</p> -->
             <p class="c-status">Coming soon</p>
           </div>
         </div>
@@ -1463,6 +1544,36 @@
       </div>
       <p class="contact-line reveal">Have a question or just want to say hello &mdash; <a
           href="mailto:hello@allthosestars.com" class="contact-link">hello@allthosestars.com</a></p>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-inner">
+      <p class="section-label reveal">The Maker</p>
+      <h2 class="reveal">About <em>Me</em></h2>
+      <div class="divider reveal"></div>
+      <div class="about-grid">
+        <div class="about-photo-wrap reveal">
+          <!-- Replace with: <img src="images/about-photo.jpg" alt="Portrait photo" /> -->
+          <p class="about-photo-placeholder">&#128247;<br />Photo<br />coming soon</p>
+        </div>
+        <div class="about-text reveal">
+          <p>As a kid I was fascinated by the mysteries of the cosmos. I used to spend hours
+            admiring the night sky, and when I was eight I asked my parents for a telescope.
+            When it was time to start university I didn&rsquo;t think twice &mdash; I took a
+            degree in astrophysics.</p>
+          <p>Now an adult and a father of two beautiful, smart kids, I use my free time to
+            give form to ideas that are centred on my life as a parent.
+            <strong style="color:var(--white)">All Those Stars</strong> was born from the desire
+            to share my love for the stars with my children.
+          </p>
+          <p>Another project I&rsquo;ve made is
+            <a href="https://apps.apple.com/app/pibaki" class="about-project-link" target="_blank" rel="noopener">Pibaki
+              &mdash; Piggy Bank for Kids</a>, available for iPhones and
+            iPads on the App&nbsp;Store.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1504,23 +1615,23 @@
     <p class="footer-logo">&#10022; All Those <span>Stars</span></p>
     <p class="footer-tagline">Handmade smart constellation posters that hide a secret message</p>
     <div class="social-links">
-      <a href="https://instagram.com/allthosestars" class="social-link" target="_blank" rel="noopener"><svg width="16"
+      <a href="https://instagram.com/all_those_stars" class="social-link" target="_blank" rel="noopener"><svg width="16"
           height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
           <circle cx="12" cy="12" r="4" />
           <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
         </svg>Instagram</a>
-      <a href="https://tiktok.com/@allthosestars" class="social-link" target="_blank" rel="noopener"><svg width="16"
+      <a href="https://tiktok.com/@all_those_stars" class="social-link" target="_blank" rel="noopener"><svg width="16"
           height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path
             d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.3 6.3 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.74a4.85 4.85 0 01-1.01-.05z" />
         </svg>TikTok</a>
-      <a href="https://youtube.com/@allthosestars" class="social-link" target="_blank" rel="noopener"><svg width="16"
+      <a href="https://youtube.com/@all_those_stars" class="social-link" target="_blank" rel="noopener"><svg width="16"
           height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path
             d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
         </svg>YouTube</a>
-      <a href="https://github.com/yourusername/allthosestars" class="social-link" target="_blank" rel="noopener"><svg
+      <a href="https://github.com/lubrz/allthosestars" class="social-link" target="_blank" rel="noopener"><svg
           width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path
             d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12" />
