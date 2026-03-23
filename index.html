@@ -1040,6 +1040,7 @@
       <li><a href="#poster">The Poster</a></li>
       <li><a href="#materials">Materials</a></li>
       <li><a href="#howto">How To</a></li>
+      <li><a href="#calibration">Calibration</a></li>
       <li><a href="#code">Code</a></li>
       <li><a href="#more">More</a></li>
       <li><a href="#disclaimer">Disclaimer</a></li>
@@ -1110,13 +1111,12 @@
           <ul class="spec-list">
             <li><span class="spec-icon">&#10022;</span><span>Warm-white LEDs, each flickering independently to simulate
                 real star scintillation</span></li>
-            <li><span class="spec-icon">&#10022;</span><span>Polaris rendered in cool blue &mdash; the one star that
-                never moves</span></li>
-            <li><span class="spec-icon">&#10022;</span><span>One LED blinks a hidden message in Morse code &mdash; known
-                only to you</span></li>
+            <li><span class="spec-icon">&#10022;</span><span>Polaris blinks a hidden message in Morse code &mdash; only
+                visile in the dark</span></li>
             <li><span class="spec-icon">&#10022;</span><span>Photoresistor detects ambient light &mdash; the poster
                 wakes only in darkness</span></li>
-            <li><span class="spec-icon">&#10022;</span><span>Arduino Nano Every running a custom open-source
+            <li><span class="spec-icon">&#10022;</span><span>An Arduino Nano Every Microcontroller unit running a custom
+                open-source
                 sketch</span></li>
           </ul>
         </div>
@@ -1178,8 +1178,7 @@
           </div>
         </div>
         <div class="material-card reveal">
-          <div class="mat-img-wrap"><img src="images/drill.jpg" alt="Drill"
-              onerror="this.style.display='none'" />
+          <div class="mat-img-wrap"><img src="images/drill.jpg" alt="Drill" onerror="this.style.display='none'" />
             <!-- <p class="mat-placeholder-label">&#128247; images/drill.jpg</p> -->
           </div>
           <div class="mat-body">
@@ -1189,8 +1188,8 @@
         </div>
         <div class="material-card reveal">
           <div class="mat-img-wrap"><img src="images/microcontroller.jpeg" alt="Microcontroller
-              onerror="this.style.display='none'" />
-            <!-- <p class="mat-placeholder-label">&#128247; images/arduino-nano.jpg</p> -->
+              onerror=" this.style.display='none'" />
+            <!-- <p class=" mat-placeholder-label">&#128247; images/arduino-nano.jpg</p> -->
           </div>
           <div class="mat-body">
             <p class="mat-name">Microcontroller</p>
@@ -1205,7 +1204,8 @@
           </div>
           <div class="mat-body">
             <p class="mat-name">Perfboard</p>
-            <p class="mat-desc">The base for all electronic components. Provides a stable platform for the microcontroller,
+            <p class="mat-desc">The base for all electronic components. Provides a stable platform for the
+              microcontroller,
               resistors, and other parts.</p>
           </div>
         </div>
@@ -1227,7 +1227,8 @@
           </div>
           <div class="mat-body">
             <p class="mat-name">10k&#8486; Resistors;</p>
-            <p class="mat-desc">10k&#8486; resistors for the LDR voltage divider and for the LEDs. Use insulated wires to connect
+            <p class="mat-desc">10k&#8486; resistors for the LDR voltage divider and for the LEDs. Use insulated wires
+              to connect
               everything neatly behind the board.</p>
           </div>
         </div>
@@ -1269,8 +1270,8 @@
           <div class="step-number">1</div>
           <div class="step-body">
             <p class="step-title">Design &amp; print the constellation</p>
-            <p class="step-desc">I create a custom design for each constellation using accurate star position data to
-              maintain correct angular relationships. The artwork is printed at A3 scale on quality paper &mdash; this
+            <p class="step-desc">I create a custom design for each constellation. The artwork is then printed on quality
+              paper &mdash; this
               becomes the face of the poster.</p>
           </div>
         </div>
@@ -1288,7 +1289,7 @@
           <div class="step-number">3</div>
           <div class="step-body">
             <p class="step-title">Drill the MDF board</p>
-            <p class="step-desc">Using a 5mm drill bit, bore a hole at each marked star position. Work slowly &mdash;
+            <p class="step-desc">Using the drill, bore a hole at each marked star position. Work slowly &mdash;
               clean entry holes make the LEDs sit flush and look polished from the front.</p>
           </div>
         </div>
@@ -1296,7 +1297,7 @@
           <div class="step-number">4</div>
           <div class="step-body">
             <p class="step-title">Install &amp; wire the LEDs</p>
-            <p class="step-desc">Press each LED through its hole from behind &mdash; they grip snugly without glue. Run
+            <p class="step-desc">Place each LED behind its hole. Run
               individual wires from each LED anode to a separate digital pin on the Arduino. All cathodes share a common
               ground. Label your wires.</p>
           </div>
@@ -1325,10 +1326,51 @@
             <p class="step-title">Assemble and frame</p>
             <p class="step-desc">Layer the print over the MDF so each LED pokes through its matching hole. Secure with
               small dabs of glue. The Arduino and wiring hide behind the board inside the deep frame. Close it up, plug
-              it in, and turn off the lights.</p>
+              it in. </p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section id="calibration">
+    <div class="section-inner">
+      <p class="section-label reveal">First Power-On</p>
+      <h2 class="reveal">Powering On &amp; <em>Calibration</em></h2>
+      <div class="divider reveal"></div>
+      <p class="reveal">Every time the microcontroller starts up, the poster runs a short
+        calibration routine so it can learn the difference between a lit room and a dark one.
+        This takes roughly a minute &mdash; once complete, the poster will switch its LEDs on and
+        off automatically based on ambient light.</p>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-number">1</div>
+          <div class="step-body">
+            <p class="step-title">Light reading &mdash; keep the room bright</p>
+            <p class="step-desc">When the poster powers on, the LEDs will light up one at a time
+              in a slow cascade. During this phase the photoresistor is sampling the
+              ambient brightness, so <strong style="color:var(--white)">make sure the room lights
+                are on</strong> and nothing is blocking the sensor. Once every LED is lit, they will
+              all blink three times to confirm the light reading is done.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">2</div>
+          <div class="step-body">
+            <p class="step-title">Dark reading &mdash; cover the sensor or turn off the lights</p>
+            <p class="step-desc">Immediately after the three blinks, the LEDs will begin turning
+              off one by one in reverse order. This time the photoresistor is recording
+              the darkness level, so <strong style="color:var(--white)">cover the sensor with your
+                finger or switch the room lights off</strong>. When the last LED goes out, all LEDs
+              will blink three more times &mdash; calibration is complete.</p>
+          </div>
+        </div>
+      </div>
+      <p class="reveal" style="margin-top:1.8rem;font-size:.88rem;color:var(--muted);">
+        <strong style="color:var(--white);">Note &mdash;</strong> calibration runs every time the
+        microcontroller restarts. If you disconnect and reconnect the batteries (or power cycle
+        the poster), you will need to go through this two-step process again.
+      </p>
     </div>
   </section>
 
@@ -1363,7 +1405,7 @@
         appear here as they&rsquo;re made.</p>
       <div class="constellation-grid">
         <div class="constellation-card done reveal">
-          <div class="c-photo"><img src="IMG_0470.jpeg" alt="Ursa Minor constellation poster" /></div>
+          <div class="c-photo"><img src="images/ursa_minor.jpg" alt="Ursa Minor constellation poster" /></div>
           <div class="c-body"><span class="c-symbol">&#10022;</span>
             <p class="c-name">Ursa Minor</p>
             <p class="c-tagline">&ldquo;Follow Your North Star&rdquo;</p>
@@ -1460,7 +1502,7 @@
 
   <footer>
     <p class="footer-logo">&#10022; All Those <span>Stars</span></p>
-    <p class="footer-tagline">Handmade smart constellation posters with a secret inside</p>
+    <p class="footer-tagline">Handmade smart constellation posters that hide a secret message</p>
     <div class="social-links">
       <a href="https://instagram.com/allthosestars" class="social-link" target="_blank" rel="noopener"><svg width="16"
           height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
