@@ -354,7 +354,7 @@
       background: var(--bg2);
       aspect-ratio: 2 / 3;
       /* keep the 2x3 poster ratio */
-      min-height: 200px;
+      min-height: 400px;
       /* fallback when aspect-ratio isn't supported */
     }
 
@@ -1161,6 +1161,13 @@
     <p class="hero-eyebrow">Handcrafted &middot; Interactive &middot; Wall Art</p>
     <h1 class="hero-title">All Those Stars</h1>
     <p class="hero-subtitle">A piece of sky. A message, whispered in the dark.</p>
+    <div class="poster-image-wrap" style="opacity:0;animation:fade-up 1s ease .9s forwards">
+      <img class="poster-img poster-img--default" src="images/lights_on_stars_off.jpg"
+        alt="Ursa Minor smart constellation poster with glowing LEDs" />
+      <img class="poster-img poster-img--hover" src="images/lights_off_stars_on.jpg"
+        alt="Ursa Minor smart constellation poster with LEDs illuminated" />
+      <div class="poster-glow"></div>
+    </div>
     <!-- <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
       <div class="video-placeholder">
@@ -1203,16 +1210,13 @@
 
   <section id="poster">
     <div class="section-inner">
+
       <p class="section-label reveal">First Light</p>
       <h2 class="reveal">Ursa Minor &mdash; <em>The Little Bear</em></h2>
       <div class="divider reveal"></div>
       <div class="poster-grid">
-        <div class="poster-image-wrap reveal">
-          <img class="poster-img poster-img--default" src="images/lights_on_stars_off.jpg"
-            alt="Ursa Minor smart constellation poster with glowing LEDs" />
-          <img class="poster-img poster-img--hover" src="images/lights_off_stars_on.jpg"
-            alt="Ursa Minor smart constellation poster with LEDs illuminated" />
-          <div class="poster-glow"></div>
+        <div class="story-comic reveal" style="max-width:310px;margin-top:3rem;">
+          <img src="images/detail.jpg" alt="Close-up detail of the Ursa Minor constellation" />
         </div>
         <div class="reveal">
           <!-- <p class="poster-name">Ursa Minor</p>
@@ -1227,7 +1231,7 @@
             <li><span class="spec-icon">&#10022;</span><span>Warm-white LEDs, each flickering independently to simulate
                 real star scintillation</span></li>
             <li><span class="spec-icon">&#10022;</span><span>Polaris blinks a hidden message in Morse code &mdash; only
-                visile in the dark</span></li>
+                visible in the dark</span></li>
             <li><span class="spec-icon">&#10022;</span><span>Photoresistor detects ambient light &mdash; the poster
                 wakes only in darkness</span></li>
             <li><span class="spec-icon">&#10022;</span><span>An Arduino Nano Every Microcontroller unit running a custom
@@ -1472,9 +1476,6 @@
               it in. </p>
           </div>
         </div>
-      </div>
-      <div class="story-comic reveal" style="max-width:310px;margin-top:3rem;">
-        <img src="images/detail.jpg" alt="Close-up detail of the Ursa Minor constellation" />
       </div>
     </div>
   </section>
