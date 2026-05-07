@@ -1063,6 +1063,29 @@
       letter-spacing: .08em
     }
 
+    .footer-license {
+      font-size: .68rem;
+      color: var(--muted);
+      opacity: .45;
+      letter-spacing: .04em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: .15em
+    }
+
+    .footer-license a {
+      color: var(--muted);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color .3s
+    }
+
+    .footer-license a:hover {
+      color: var(--gold)
+    }
+
     @keyframes fade-up {
       from {
         opacity: 0;
@@ -1701,6 +1724,16 @@
         </svg>GitHub</a>
     </div>
     <p class="footer-bottom">&#169; 2026 All Those Stars &middot; allthosestars.com &middot;</p>
+    <p class="footer-license"><a href="https://allthosestars.com">All Those Stars</a> © 2026 is licensed under <a
+        href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a><img
+        src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt=""
+        style="max-width: 1em;max-height:1em;margin-left: .2em;"><img
+        src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt=""
+        style="max-width: 1em;max-height:1em;margin-left: .2em;"><img
+        src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt=""
+        style="max-width: 1em;max-height:1em;margin-left: .2em;"><img
+        src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt=""
+        style="max-width: 1em;max-height:1em;margin-left: .2em;"></p>
   </footer>
 
   <script>
