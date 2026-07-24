@@ -4,16 +4,176 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="theme-color" content="#07090f" />
   <title>All Those Stars — Handcrafted Interactive Wall Art</title>
   <meta name="description"
     content="Hand crafted interactive wall art with hidden Morse code messages, LED flickering stars, and ambient light sensing. Each one a piece of sky." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
-    rel="stylesheet" />
-  <link rel="icon" href="images/icon.jpg" type="image/jpeg">
+  <link rel="canonical" href="https://allthosestars.com/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="All Those Stars" />
+  <meta property="og:title" content="All Those Stars — Handcrafted Interactive Wall Art" />
+  <meta property="og:description"
+    content="Hand crafted interactive wall art with hidden Morse code messages, LED flickering stars, and ambient light sensing. Each one a piece of sky." />
+  <meta property="og:url" content="https://allthosestars.com/" />
+  <meta property="og:image" content="https://allthosestars.com/images/lights_off_stars_on.jpg" />
+  <meta property="og:image:alt" content="The Ursa Minor smart constellation poster glowing in the dark" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="All Those Stars — Handcrafted Interactive Wall Art" />
+  <meta name="twitter:description"
+    content="Hand crafted interactive wall art with hidden Morse code messages, LED flickering stars, and ambient light sensing. Each one a piece of sky." />
+  <meta name="twitter:image" content="https://allthosestars.com/images/lights_off_stars_on.jpg" />
+
+  <link rel="preload" href="fonts/cormorant-garamond-300-normal-latin.woff2" as="font" type="font/woff2"
+    crossorigin />
+  <link rel="preload" href="fonts/jost-300-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="icon" href="images/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "All Those Stars",
+    "url": "https://allthosestars.com/",
+    "description": "Handcrafted interactive constellation posters with hidden Morse code messages, independently flickering warm-white LED stars, and ambient light sensing, powered by an Arduino Nano.",
+    "image": "https://allthosestars.com/images/lights_off_stars_on.jpg",
+    "keywords": "constellation poster, Arduino, LED wall art, Morse code, DIY electronics",
+    "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+  }
+  </script>
   <style>
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: italic;
+      font-weight: 300;
+      font-display: swap;
+      src: url(fonts/cormorant-garamond-300-italic-latin-ext.woff2) format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: italic;
+      font-weight: 300;
+      font-display: swap;
+      src: url(fonts/cormorant-garamond-300-italic-latin.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: italic;
+      font-weight: 400;
+      font-display: swap;
+      src: url(fonts/cormorant-garamond-400-italic-latin-ext.woff2) format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: italic;
+      font-weight: 400;
+      font-display: swap;
+      src: url(fonts/cormorant-garamond-400-italic-latin.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: url(fonts/cormorant-garamond-300-normal-latin-ext.woff2) format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: url(fonts/cormorant-garamond-300-normal-latin.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url(fonts/cormorant-garamond-400-normal-latin-ext.woff2) format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url(fonts/cormorant-garamond-400-normal-latin.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url(fonts/cormorant-garamond-600-normal-latin-ext.woff2) format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url(fonts/cormorant-garamond-600-normal-latin.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Jost';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: url(fonts/jost-300-normal-latin-ext.woff2) format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: 'Jost';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: url(fonts/jost-300-normal-latin.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Jost';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url(fonts/jost-400-normal-latin-ext.woff2) format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: 'Jost';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url(fonts/jost-400-normal-latin.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Jost';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url(fonts/jost-500-normal-latin-ext.woff2) format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: 'Jost';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url(fonts/jost-500-normal-latin.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
     *,
     *::before,
     *::after {
@@ -111,6 +271,40 @@
       color: var(--gold)
     }
 
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      cursor: pointer;
+      padding: .5rem;
+      margin: -.5rem
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform .3s ease, opacity .3s ease
+    }
+
+    .nav-toggle span+span {
+      margin-top: 5px
+    }
+
+    nav.open .nav-toggle span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg)
+    }
+
+    nav.open .nav-toggle span:nth-child(2) {
+      opacity: 0
+    }
+
+    nav.open .nav-toggle span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg)
+    }
+
     #hero {
       position: relative;
       z-index: 1;
@@ -160,52 +354,6 @@
       margin: 0 auto 3rem;
       opacity: 0;
       animation: fade-up 1s ease .7s forwards
-    }
-
-    .video-wrapper {
-      width: min(720px, 90vw);
-      aspect-ratio: 16/9;
-      border-radius: 4px;
-      overflow: hidden;
-      box-shadow: 0 0 80px rgba(232, 184, 75, .12), 0 0 0 1px rgba(232, 184, 75, .15);
-      opacity: 0;
-      animation: fade-up 1s ease .9s forwards
-    }
-
-    .video-wrapper iframe {
-      width: 100%;
-      height: 100%;
-      border: none
-    }
-
-    .video-placeholder {
-      width: 100%;
-      height: 100%;
-      background: var(--bg2);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      color: var(--muted)
-    }
-
-    .play-icon {
-      width: 64px;
-      height: 64px;
-      border: 2px solid var(--gold-dim);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center
-    }
-
-    .play-icon::after {
-      content: '';
-      border-left: 20px solid var(--gold);
-      border-top: 12px solid transparent;
-      border-bottom: 12px solid transparent;
-      margin-left: 4px
     }
 
     .scroll-hint {
@@ -879,6 +1027,20 @@
       margin-bottom: 0
     }
 
+    .nl-error {
+      display: none;
+      font-size: .82rem;
+      color: #d98a7a;
+      margin-top: 1rem;
+      margin-bottom: 0
+    }
+
+    .nl-error a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px
+    }
+
     .contact-line {
       text-align: center;
       margin-top: 1.8rem;
@@ -1148,8 +1310,38 @@
         padding: 1.2rem 1.5rem
       }
 
+      .nav-toggle {
+        display: block
+      }
+
       .nav-links {
-        display: none
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: rgba(7, 9, 15, .97);
+        backdrop-filter: blur(8px);
+        border-top: 1px solid rgba(255, 255, 255, .06);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .35s ease
+      }
+
+      nav.open .nav-links {
+        max-height: 80vh
+      }
+
+      .nav-links li {
+        width: 100%
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 1rem 1.5rem;
+        font-size: .8rem;
+        border-bottom: 1px solid rgba(255, 255, 255, .05)
       }
 
       .poster-grid {
@@ -1160,14 +1352,35 @@
         padding: 2.5rem 1.5rem
       }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .001ms !important;
+        animation-delay: 0s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+        scroll-behavior: auto !important
+      }
+
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important
+      }
+    }
   </style>
 </head>
 
 <body>
-  <canvas id="starfield"></canvas>
+  <canvas id="starfield" aria-hidden="true"></canvas>
   <nav>
     <a href="#" class="nav-logo"><span class="star-mark">&#10022;</span> All Those Stars</a>
-    <ul class="nav-links">
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
       <li><a href="#story">Story</a></li>
       <li><a href="#poster">The Poster</a></li>
       <li><a href="#materials">Materials</a></li>
@@ -1186,18 +1399,11 @@
     <p class="hero-subtitle">A piece of sky. A message, whispered in the dark.</p>
     <div class="poster-image-wrap" style="opacity:0;animation:fade-up 1s ease .9s forwards">
       <img class="poster-img poster-img--default" src="images/lights_on_stars_off.jpg"
-        alt="Ursa Minor smart constellation poster with glowing LEDs" />
+        alt="Ursa Minor smart constellation poster with glowing LEDs" fetchpriority="high" decoding="async" />
       <img class="poster-img poster-img--hover" src="images/lights_off_stars_on.jpg"
-        alt="Ursa Minor smart constellation poster with LEDs illuminated" />
+        alt="Ursa Minor smart constellation poster with LEDs illuminated" loading="lazy" decoding="async" />
       <div class="poster-glow"></div>
     </div>
-    <!-- <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
-      <div class="video-placeholder">
-        <div class="play-icon"></div>
-        <p style="font-size:.85rem;letter-spacing:.1em;margin:0;">Video coming soon</p>
-      </div>
-    </div> -->
     <div class="scroll-hint"><span>Scroll</span>
       <div class="scroll-line"></div>
     </div>
@@ -1215,7 +1421,7 @@
         sky, and just&hellip;
         give it to them...&rdquo;</blockquote>
       <div class="story-comic reveal">
-        <img src="images/story.jpg"
+        <img loading="lazy" decoding="async" src="images/story.jpg"
           alt="Three-panel comic: a father points at the stars with his children, holds up the glowing Ursa Minor poster against the night sky, then hands it to them saying — Now these stars will always be with you." />
       </div>
       <p class="reveal"><br>
@@ -1239,7 +1445,7 @@
       <div class="divider reveal"></div>
       <div class="poster-grid">
         <div class="story-comic reveal" style="max-width:310px;margin-top:3rem;">
-          <img src="images/detail.jpg" alt="Close-up detail of the Ursa Minor constellation" />
+          <img loading="lazy" decoding="async" src="images/detail.jpg" alt="Close-up detail of the Ursa Minor constellation" />
         </div>
         <div class="reveal">
           <!-- <p class="poster-name">Ursa Minor</p>
@@ -1276,7 +1482,7 @@
         table, patience, and a little wonder.</p>
       <div class="materials-grid">
         <div class="material-card reveal">
-          <div class="mat-img-wrap"><img src="images/mdf-board.jpg" alt="MDF board"
+          <div class="mat-img-wrap"><img loading="lazy" decoding="async" src="images/mdf-board.jpg" alt="MDF board"
               onerror="this.style.display='none'" />
             <!-- p class="mat-placeholder-label">&#128247; images/mdf-board.jpg</p>-->
           </div>
@@ -1287,7 +1493,7 @@
           </div>
         </div>
         <div class="material-card reveal">
-          <div class="mat-img-wrap"><img src="images/constellation-print.jpg" alt="Constellation print"
+          <div class="mat-img-wrap"><img loading="lazy" decoding="async" src="images/constellation-print.jpg" alt="Constellation print"
               onerror="this.style.display='none'" />
             <!-- <p class="mat-placeholder-label">&#128247; images/constellation-print.jpg</p> -->
           </div>
@@ -1298,7 +1504,7 @@
           </div>
         </div>
         <div class="material-card reveal">
-          <div class="mat-img-wrap"><img src="images/leds.jpg" alt="Warm white LEDs"
+          <div class="mat-img-wrap"><img loading="lazy" decoding="async" src="images/leds.jpg" alt="Warm white LEDs"
               onerror="this.style.display='none'" />
             <!-- <p class="mat-placeholder-label">&#128247; images/leds.jpg</p>  -->
           </div>
@@ -1309,7 +1515,7 @@
           </div>
         </div>
         <div class="material-card reveal">
-          <div class="mat-img-wrap"><img src="images/hole-punch.jpeg" alt="Leather hole punch"
+          <div class="mat-img-wrap"><img loading="lazy" decoding="async" src="images/hole-punch.jpeg" alt="Leather hole punch"
               onerror="this.style.display='none'" />
             <!-- <p class="mat-placeholder-label">&#128247; images/hole-punch.jpg</p> -->
           </div>
@@ -1320,7 +1526,7 @@
           </div>
         </div>
         <div class="material-card reveal">
-          <div class="mat-img-wrap"><img src="images/drill.jpg" alt="Drill" onerror="this.style.display='none'" />
+          <div class="mat-img-wrap"><img loading="lazy" decoding="async" src="images/drill.jpg" alt="Drill" onerror="this.style.display='none'" />
             <!-- <p class="mat-placeholder-label">&#128247; images/drill.jpg</p> -->
           </div>
           <div class="mat-body">
@@ -1329,9 +1535,8 @@
           </div>
         </div>
         <div class="material-card reveal">
-          <div class="mat-img-wrap"><img src="images/microcontroller.jpeg" alt="Microcontroller
-              onerror=" this.style.display='none'" />
-            <!-- <p class=" mat-placeholder-label">&#128247; images/arduino-nano.jpg</p> -->
+          <div class="mat-img-wrap"><img loading="lazy" decoding="async" src="images/microcontroller.jpeg" alt="Microcontroller"
+              onerror="this.style.display='none'" />
           </div>
           <div class="mat-body">
             <p class="mat-name">Microcontroller</p>
@@ -1340,7 +1545,7 @@
           </div>
         </div>
         <div class="material-card reveal">
-          <div class="mat-img-wrap"><img src="images/perfboard.jpeg" alt="Circuit Perfboard"
+          <div class="mat-img-wrap"><img loading="lazy" decoding="async" src="images/perfboard.jpeg" alt="Circuit Perfboard"
               onerror="this.style.display='none'" />
             <!-- <p class="mat-placeholder-label">&#128247; images/arduino-nano.jpg</p> -->
           </div>
@@ -1352,7 +1557,7 @@
           </div>
         </div>
         <div class="material-card reveal">
-          <div class="mat-img-wrap"><img src="images/photoresistor.jpg" alt="Photoresistor LDR"
+          <div class="mat-img-wrap"><img loading="lazy" decoding="async" src="images/photoresistor.jpg" alt="Photoresistor LDR"
               onerror="this.style.display='none'" />
             <!-- <p class="mat-placeholder-label">&#128247; images/photoresistor.jpg</p> -->
           </div>
@@ -1363,7 +1568,7 @@
           </div>
         </div>
         <div class="material-card reveal">
-          <div class="mat-img-wrap"><img src="images/resistor.jpg" alt="Resistors"
+          <div class="mat-img-wrap"><img loading="lazy" decoding="async" src="images/resistor.jpg" alt="Resistors"
               onerror="this.style.display='none'" />
             <!-- <p class="mat-placeholder-label">&#128247; images/resistors-wires.jpg</p>  -->
           </div>
@@ -1375,7 +1580,7 @@
           </div>
         </div>
         <div class="material-card reveal">
-          <div class="mat-img-wrap"><img src="images/transparent_tube.jpg" alt="Transparent tube"
+          <div class="mat-img-wrap"><img loading="lazy" decoding="async" src="images/transparent_tube.jpg" alt="Transparent tube"
               onerror="this.style.display='none'" />
             <!-- <p class="mat-placeholder-label">&#128247; images/resistors-wires.jpg</p>  -->
           </div>
@@ -1385,7 +1590,7 @@
           </div>
         </div>
         <div class="material-card reveal">
-          <div class="mat-img-wrap"><img src="images/frame.jpg" alt="A3 picture frame"
+          <div class="mat-img-wrap"><img loading="lazy" decoding="async" src="images/frame.jpg" alt="A3 picture frame"
               onerror="this.style.display='none'" />
             <!-- <p class="mat-placeholder-label">&#128247; images/frame.jpg</p> -->
           </div>
@@ -1396,7 +1601,7 @@
           </div>
         </div>
         <div class="material-card reveal">
-          <div class="mat-img-wrap"><img src="images/batteries.jpg" alt="Battery power source"
+          <div class="mat-img-wrap"><img loading="lazy" decoding="async" src="images/batteries.jpg" alt="Battery power source"
               onerror="this.style.display='none'" />
             <!-- <p class="mat-placeholder-label">&#128247; images/power-source.jpg</p> -->
           </div>
@@ -1407,7 +1612,7 @@
           </div>
         </div>
         <div class="material-card reveal">
-          <div class="mat-img-wrap"><img src="images/soldering_iron.jpeg" alt="Soldering Iron"
+          <div class="mat-img-wrap"><img loading="lazy" decoding="async" src="images/soldering_iron.jpeg" alt="Soldering Iron"
               onerror="this.style.display='none'" />
             <!-- <p class="mat-placeholder-label">&#128247; images/power-source.jpg</p> -->
           </div>
@@ -1417,7 +1622,7 @@
           </div>
         </div>
         <div class="material-card reveal">
-          <div class="mat-img-wrap"><img src="images/glue.jpeg" alt="Glue" onerror="this.style.display='none'" />
+          <div class="mat-img-wrap"><img loading="lazy" decoding="async" src="images/glue.jpeg" alt="Glue" onerror="this.style.display='none'" />
           </div>
           <div class="mat-body">
             <p class="mat-name">Glue</p>
@@ -1449,7 +1654,7 @@
           <div class="step-number">2</div>
           <div class="step-body">
             <p class="step-title">Mark the star positions on the MDF</p>
-            <p class="step-desc">Place the print over the MDF board and use a hole punch with to cut
+            <p class="step-desc">Place the print over the MDF board and use a hole punch to cut
               matching holes at each star. The punch gives a perfectly clean, round result transferring each star
               position
               through the paper onto the board below. These marks become your drilling guide.</p>
@@ -1575,16 +1780,16 @@
         appear here as they&rsquo;re made.</p>
       <div class="constellation-grid">
         <div class="constellation-card done reveal">
-          <div class="c-photo"><img src="images/ursa_minor.jpg" alt="Ursa Minor constellation poster" /></div>
+          <div class="c-photo"><img loading="lazy" decoding="async" src="images/ursa_minor.jpg" alt="Ursa Minor constellation poster" /></div>
           <div class="c-body"><span class="c-symbol">&#10022;</span>
             <p class="c-name">Ursa Minor</p>
             <p class="c-tagline">&ldquo;Follow Your North Star&rdquo;</p>
             <p class="c-status">Complete</p>
           </div>
         </div>
-        <!-- When Cassiopeia is ready: replace c-photo-placeholder with <img src="images/cassiopeia.jpg" alt="..."/> -->
+        <!-- When Cassiopeia is ready: replace c-photo-placeholder with <img loading="lazy" decoding="async" src="images/cassiopeia.jpg" alt="..."/> -->
         <div class="constellation-card reveal">
-          <span class="badge-soon">In progess</span>
+          <span class="badge-soon">In progress</span>
           <div class="c-photo">
             <p class="c-photo-placeholder">&#128247;<br />Photo coming<br />when ready</p>
           </div>
@@ -1594,7 +1799,7 @@
             <p class="c-status">In progress</p>
           </div>
         </div>
-        <!-- When Orion is ready: replace c-photo-placeholder with <img src="images/orion.jpg" alt="..."/> -->
+        <!-- When Orion is ready: replace c-photo-placeholder with <img loading="lazy" decoding="async" src="images/orion.jpg" alt="..."/> -->
         <div class="constellation-card reveal">
           <span class="badge-soon">Next</span>
           <div class="c-photo">
@@ -1606,7 +1811,7 @@
             <p class="c-status">In progress</p>
           </div>
         </div>
-        <!-- When Zodiac is ready: replace c-photo-placeholder with <img src="images/zodiac.jpg" alt="..."/> -->
+        <!-- When Zodiac is ready: replace c-photo-placeholder with <img loading="lazy" decoding="async" src="images/zodiac.jpg" alt="..."/> -->
         <div class="constellation-card reveal">
           <span class="badge-soon">Soon</span>
           <div class="c-photo">
@@ -1623,12 +1828,12 @@
         <p class="section-label" style="justify-content:center;margin-bottom:1rem;">Stay in the Loop</p>
         <h3>New constellations are <em>on the way</em></h3>
         <p class="nl-desc">Sign up and I&rsquo;ll write when there&rsquo;s something worth sharing.</p>
-        <!-- Replace action with your form provider URL -->
-        <form class="newsletter-form" id="nl-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <form class="newsletter-form" id="nl-form" action="https://formspree.io/f/xaqrpzyo" method="POST">
           <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
           <button type="submit">Keep me posted &#10022;</button>
         </form>
         <p id="nl-success" class="nl-success">&#10022; You&rsquo;re on the list &mdash; thank you.</p>
+        <p id="nl-error" class="nl-error">Something went wrong &mdash; please email <a href="mailto:hello@allthosestars.com">hello@allthosestars.com</a> directly.</p>
         <p class="nl-note">No spam. No algorithms. Just stars, when they&rsquo;re ready.</p>
       </div>
       <p class="contact-line reveal">Have a question or just want to say hello &mdash; <a
@@ -1643,8 +1848,7 @@
       <div class="divider reveal"></div>
       <div class="about-grid">
         <div class="about-photo-wrap reveal">
-          <img src="images/profile.jpg" alt="Portrait photo" />
-          <p class="about-photo-placeholder">&#128247;<br />Photo<br />coming soon</p>
+          <img loading="lazy" decoding="async" src="images/profile.jpg" alt="Portrait photo" onerror="this.style.display='none'" />
         </div>
         <div class="about-text reveal">
           <p>As a kid I was fascinated by the mysteries of the cosmos. I used to spend hours admiring the night sky, and
@@ -1738,12 +1942,30 @@
 
   <script>
     (function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var c = document.getElementById('starfield'), ctx = c.getContext('2d'), stars = [];
       function resize() { c.width = window.innerWidth; c.height = window.innerHeight; }
       function make() { stars = []; for (var i = 0; i < 220; i++)stars.push({ x: Math.random() * c.width, y: Math.random() * c.height, r: Math.random() * 1.2 + .2, a: Math.random(), d: (Math.random() * .008 + .002) * (Math.random() < .5 ? 1 : -1), col: Math.random() < .05 ? '#7ec8f5' : '#e8d8b0' }); }
-      function draw() { ctx.clearRect(0, 0, c.width, c.height); for (var i = 0; i < stars.length; i++) { var s = stars[i]; s.a += s.d; if (s.a >= 1) { s.a = 1; s.d = -Math.abs(s.d); } if (s.a <= 0) { s.a = 0; s.d = Math.abs(s.d); } ctx.save(); ctx.globalAlpha = s.a * .7; ctx.fillStyle = s.col; ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fill(); ctx.restore(); } requestAnimationFrame(draw); }
-      resize(); make(); draw();
-      window.addEventListener('resize', function () { resize(); make(); });
+      function paint() { ctx.clearRect(0, 0, c.width, c.height); for (var i = 0; i < stars.length; i++) { var s = stars[i]; ctx.save(); ctx.globalAlpha = s.a * .7; ctx.fillStyle = s.col; ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fill(); ctx.restore(); } }
+      function draw() { for (var i = 0; i < stars.length; i++) { var s = stars[i]; s.a += s.d; if (s.a >= 1) { s.a = 1; s.d = -Math.abs(s.d); } if (s.a <= 0) { s.a = 0; s.d = Math.abs(s.d); } } paint(); requestAnimationFrame(draw); }
+      resize(); make();
+      if (reduce) { paint(); } else { draw(); }
+      window.addEventListener('resize', function () { resize(); make(); if (reduce) paint(); });
+    }());
+
+    /* Mobile nav toggle */
+    (function () {
+      var nav = document.querySelector('nav');
+      var toggle = document.getElementById('nav-toggle');
+      var links = document.getElementById('nav-links');
+      if (!nav || !toggle || !links) return;
+      function setOpen(open) {
+        nav.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      }
+      toggle.addEventListener('click', function () { setOpen(!nav.classList.contains('open')); });
+      links.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
     }());
 
     (function () {
@@ -1791,12 +2013,14 @@
     (function () {
       var form = document.getElementById('nl-form');
       if (!form) return;
+      var success = document.getElementById('nl-success');
+      var error = document.getElementById('nl-error');
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        var success = document.getElementById('nl-success');
+        if (error) error.style.display = 'none';
         fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
-          .then(function (r) { if (r.ok) { form.style.display = 'none'; if (success) success.style.display = 'block'; } else { alert('Something went wrong. Please email hello@allthosestars.com directly.'); } })
-          .catch(function () { alert('Could not connect. Please email hello@allthosestars.com directly.'); });
+          .then(function (r) { if (r.ok) { form.style.display = 'none'; if (success) success.style.display = 'block'; } else if (error) { error.style.display = 'block'; } })
+          .catch(function () { if (error) error.style.display = 'block'; });
       });
     }());
   </script>
